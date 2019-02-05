@@ -72,6 +72,31 @@
 			echo "Emails don't match";
 		}
 	}
+
+	if(strlen($fname) > 25 || strlen($fname) < 2) {
+		echo "Your first name must be between 3 and 25 characters";
+	}
+
+	if(strlen($fname) > 25 || strlen($fname) < 2) {
+		echo "Your first name must be between 3 and 25 characters";
+	}
+
+	if(strlen($lname) > 25 || strlen($lname) < 2) {
+		echo "Your last name must be between 3 and 25 characters";
+	}
+
+	if($password != $password2) {
+		echo "Your passwords do not match";
+	}
+	else {
+		if(preg_match('/[^A-Za-z0-9]/', $password)) {
+			echo "Your password can only contain letters or numbers";
+		}
+
+		if(strlen($password > 30 || strlen($password) <5)) {
+			echo "Your password must be between 5 and 30 characters";
+		}
+	}
 	
 ?>
 
