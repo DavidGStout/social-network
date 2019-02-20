@@ -50,6 +50,16 @@
 	//check if email is in valid format
 	if(filter_var($em, FILTER_VALIDATE_EMAIL)) {
 		$em = filter_var($em, FILTER_VALIDATE_EMAIL);
+
+		//Check if email already exists
+		$e_check = mysqli_query($con, "SELECT email FROM users WHERE email='$em'");
+
+		//Count number of rows returned
+		$num_rows = mysqli_num_rows($e_check);
+
+		if($num_rows > 0) {
+			echo "Email already in use";
+		}
 }
 else {
 	echo "Invalid format";
